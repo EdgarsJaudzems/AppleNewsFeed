@@ -11,6 +11,7 @@ import WebKit
 class WebViewController: UIViewController, WKNavigationDelegate {
 
     @IBOutlet var webView: WKWebView!
+    @IBOutlet weak var activity: UIActivityIndicatorView!
     
     var urlString = String()
     
