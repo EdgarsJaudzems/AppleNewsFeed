@@ -9,7 +9,7 @@ import UIKit
 import WebKit
 
 class WebViewController: UIViewController, WKNavigationDelegate {
-
+    
     @IBOutlet var webView: WKWebView!
     @IBOutlet weak var activity: UIActivityIndicatorView!
     
@@ -28,16 +28,19 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         guard let url = URL(string: urlString) else {
             return
         }
-        
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
     }
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("Start nav")
+        guard let activityIndicator = activity else { return }
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("Finish nav")
+        guard let activityIndicator = activity else { return }
+        activityIndicator.isHidden = true
+        activityIndicator.stopAnimating()
     }
 }

@@ -39,7 +39,6 @@ class NewsFeedViewController: UIViewController {
                 self.activityIndicatorView.stopAnimating()
             }
         }
-       
     }
     
     func handleGetData(){
@@ -73,8 +72,6 @@ class NewsFeedViewController: UIViewController {
             }catch{
                 print("err when converting JSON")
             }
-            
-            
         }
         task.resume()
     }
@@ -100,9 +97,6 @@ extension NewsFeedViewController :UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as? NewsTableViewCell else { return UITableViewCell()}
-        
-//        cell.textLabel?.text = items[indexPath.row].title
-//        cell.detailTextLabel?.text = items[indexPath.row].description
         
         let item = items[indexPath.row]
         
@@ -131,7 +125,7 @@ extension NewsFeedViewController :UITableViewDataSource, UITableViewDelegate {
             vc.contentString = items[indexPath.row].description
             vc.titleString = items[indexPath.row].title
             vc.webURLString = items[indexPath.row].url
-        vc.newsImage = items[indexPath.row].image
+            vc.newsImage = items[indexPath.row].image
         
             navigationController?.pushViewController(vc, animated: true)
         }
