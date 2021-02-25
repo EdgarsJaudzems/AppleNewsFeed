@@ -67,5 +67,7 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>Allow Arbitrary Loads</key>
+	<string>YES</string>
 </dict>
 </plist>
